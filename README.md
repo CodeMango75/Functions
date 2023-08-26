@@ -61,7 +61,9 @@ The common properties of the above 2 functions are:
 
 
 ## Return Function:
-Return function is a function that can be assigned to a variable. A return function is a type of function that computes a value and sends it back as the result of the function call. The `return` statement is used to specify the value that the function should return.
+* Return function is a function that can be assigned to a variable. 
+* A return function is a type of function that computes a value and sends it back as the result of the function call. 
+* The `return` statement is used to specify the value that the function should return.
 
 ```
 def add(a, b):
@@ -73,7 +75,9 @@ sum_result = add(3, 5)  # The function returns 8, which is assigned to sum_resul
 ```
 
 ## Non Return Function:
-Non Return Function is not assigned to a vairable. A non-return function is a type of function that performs a certain task or set of tasks but doesn't produce a value that can be captured or used elsewhere in the program. These functions are primarily used for their side effects, such as printing output or modifying data.
+* Non Return Function is not assigned to a vairable. 
+* A non-return function is a type of function that performs a certain task or set of tasks but doesn't produce a value that can be captured or used elsewhere in the program. 
+* These functions are primarily used for their side effects, such as printing output or modifying data.
 
 ```
 def greet(name):
@@ -92,7 +96,9 @@ The `greet` function doesn't return a value; it only prints a message to the con
 
 **Parameters**:
 
-Parameters are placeholders or variables listed in the function definition. They act as local variables within the function and serve as receptacles for the values that are passed into the function when it's called. In simpler words, parameters are like empty slots in the function that you expect to be filled with values when the function is used.
+* Parameters are placeholders or variables listed in the function definition. 
+* They act as local variables within the function and serve as receptacles for the values that are passed into the function when it's called. 
+* In simpler words, parameters are like empty slots in the function that you expect to be filled with values when the function is used.
 
 ```
 def greet(name):
@@ -104,7 +110,8 @@ Here, `name` is the parameter of the `greet` function. It's a placeholder for th
 
 **Arguments**
 
-Arguments are the actual values that are passed to a function when it is called. They are the real data that fills in the placeholders (parameters) defined in the function.
+* Arguments are the actual values that are passed to a function when it is called. 
+* They are the real data that fills in the placeholders (parameters) defined in the function.
 In simpler words, arguments are the values you provide to a function when you use it.
 
 ```
