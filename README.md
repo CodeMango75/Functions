@@ -183,3 +183,155 @@ In summary:
 
 * For required parameters, you must provide arguments with values when calling the function, otherwise, you'll encounter an error.
 * For optional parameters, you can omit providing arguments, and the function will use the default values specified in the parameter list.
+
+## Positional Arguments
+
+* Positional arguments in Python refer to the arguments that are passed to a function in the order in which they are defined in the function's parameter list. 
+* When you call a function and provide values for its parameters without explicitly specifying the parameter names, Python assigns these values based on their position.
+```
+def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)  # Output: 8
+```
+In this example above, 3 is assigned to the parameter `a`, and 5 is assigned to the parameter `b` because of their respective positions.
+* Positional arguments are straightforward and intuitive to use, but it's important to remember that their order matters.
+* If you change the order of arguments in the function call, the values will be assigned to different parameters
+```
+result = add(5, 3)
+print(result)  # Output: 8
+```
+However, using positional arguments only will lead to confusion and this is where Named Arguments come in to play.
+
+
+## Arbitrary Arguments (*args)
+
+
+
+## Keyword Arguments (key=value)
+* In Python, "named arguments" and "keyword arguments" refer to the same concept. Both terms are often used interchangeably to describe a way of passing arguments to a function by explicitly mentioning the parameter names along with the values.
+* When you use named or keyword arguments, you provide the parameter names followed by the values you want to assign to those parameters.
+* This approach allows you to pass arguments in any order, making your code more readable and reducing the chances of confusion, especially when dealing with functions that have many parameters.
+```
+def greet(name, age):
+    print(f"Hello, {name}! You are {age} years old.")
+
+greet(name="Alice", age=30)
+```
+In this example, the function `greet` takes two parameters: `name` and `age`. When calling the function, you provide the values for these parameters using their names as keywords. This way, the order in which you provide the arguments doesn't matter.
+* Named/keyword arguments are particularly useful when a function has many parameters, and you want to make your code more self-explanatory.
+
+* When using named or keyword arguments, position does not matter at all:
+```
+def example_function(a, b, c):
+    print(f"a: {a}, b: {b}, c: {c}")
+
+example_function(b=2, a=1, c=3)
+```
+* However, both keyword and positional arguments have their place in Python programming, and the choice should be based on the specific needs of your code.
+
+## Arbitrary Keywords Arguments (**kwargs)
+* Arbitrary arguments, often referred to as "varargs" (variable number of arguments), allow you to pass a variable number of arguments to a function in Python.
+* This can be useful when you're uncertain about the number of arguments you need to provide or when you want to create functions that can handle a dynamic number of inputs.
+*  Python provides two ways to implement arbitrary arguments in function definitions: ***args** and ****kwargs**.
+
+### *Arbitrary Positional Arguments(args)*:
+* The *args syntax allows you to pass a variable number of **positional** arguments to a function. 
+* These arguments are collected into a *tuple* within the function. You can use any name you   like for `*args`, but the asterisk () is required to unpack the arguments.
+```
+def print_args(*args):
+    for arg in args:
+        print(arg)
+
+print_args(1, 2, 3)  # Output: 1 2 3
+print_args('a', 'b')  # Output: a b
+```
+
+### *Arbitrary Keyword Arguments(kwargs)*:
+* The `**kwargs` syntax allows you to pass a variable number of keyword arguments to a function.
+* These arguments are collected into a dictionary within the function
+* Similar to *args, the double asterisks () are required to unpack the arguments.
+```
+def print_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_kwargs(name='Alice', age=30)  # Output: name: Alice, age: 30
+print_kwargs(city='New York')       # Output: city: New York
+```
+You can also use both *args and **kwargs in the same function definition, but *args should appear before **kwargs:
+```
+def combined_example(arg1, *args, kwarg1=None, **kwargs):
+    print(f"arg1: {arg1}")
+    print(f"args: {args}")
+    print(f"kwarg1: {kwarg1}")
+    print(f"kwargs: {kwargs}")
+
+combined_example(1, 2, 3, kwarg1='value', name='Alice', age=30)
+```
+In this example, `arg1` is a required positional argument, `*args` captures additional positional arguments, `kwarg1` is a keyword argument with a default value, and `**kwargs` captures additional keyword arguments.
+
+* Arbitrary arguments provide flexibility, making it possible to create functions that can accept a varying number of inputs without needing to specify each argument explicitly.
+
+**NOTE**
+When you use the `**kwargs` syntax in a function definition, the arguments that are passed as keyword arguments are collected into a **dictionary** within the function.  
+This dictionary is then accessible within the function, and it contains the keyword argument names as keys and their corresponding values.
+
+```
+def process_kwargs(**kwargs):
+    print(kwargs)
+    print(type(kwargs))
+
+process_kwargs(name='Alice', age=30, city='New York')
+```
+```
+# output
+{'name': 'Alice', 'age': 30, 'city': 'New York'}
+<class 'dict'>
+```
+You can then use this dictionary to perform various operations within the function, such as iterating over the keys and values, accessing specific values using their keys, and so on. This feature is particularly useful when you want to create functions that are highly customizable and can accept a variable number of named arguments.
+
+
+# Lambda Functions
+Lambda is: 
+* One Line Function
+* Without Name (Anonymous name)
+* it didnt use before nor it'll be used afterwards
+This is called *Lambda Functions*
+* A lambda function can take any number of arguments, but can only have one expression.
+* *Syntax* of Lambda Function is:
+
+```lambda arguments : expression```
+* `lambda` is the *keyword*
+   * arguments may be any for example `x,y` 
+   * then any *expression* for example `x+y` separated by *colon* `:`
+
+```
+a = lambda x,y,z : x+y+x
+print(a(5,5,5))
+```
+* Lambda function is returned by default. No need to return it separately.
+* Use `lambda` function when you require an anonymous function for a **Short Period of Time** 
+
+### Why Use Lambda Function?
+
+* Lambda functions are efficient whenever you want to create a function that will only contain simple expressions 
+* that is, expressions that are usually a single line of a statement.
+* They're also useful when you want to use the function once.
+
+```
+data = [[1,'X','E'],
+        [3,'Y','G'],
+        [2,'Z','F']]
+print(sorted(data, key=lambda x:x[0]))
+print(sorted(data, key=lambda x:x[1]))
+print(sorted(data, key=lambda x:x[2]))
+```
+In the above example, `x` on the first instance is the matrix of data and other `x` is the column of the matrix and `[]`  passes the index of the **columns**. 
+
+* Lambda functions are useful for creating functions on-the-fly and are often employed with functions like `map()`, `filter()`, and `sorted()` for efficient code.
+
+
+
+
