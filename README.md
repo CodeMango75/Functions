@@ -204,11 +204,6 @@ print(result)  # Output: 8
 ```
 However, using positional arguments only will lead to confusion and this is where Named Arguments come in to play.
 
-
-## Arbitrary Arguments (*args)
-
-
-
 ## Keyword Arguments (key=value)
 * In Python, "named arguments" and "keyword arguments" refer to the same concept. Both terms are often used interchangeably to describe a way of passing arguments to a function by explicitly mentioning the parameter names along with the values.
 * When you use named or keyword arguments, you provide the parameter names followed by the values you want to assign to those parameters.
@@ -231,7 +226,8 @@ example_function(b=2, a=1, c=3)
 ```
 * However, both keyword and positional arguments have their place in Python programming, and the choice should be based on the specific needs of your code.
 
-## Arbitrary Keywords Arguments (**kwargs)
+## Arbitrary Arguments
+
 * Arbitrary arguments, often referred to as "varargs" (variable number of arguments), allow you to pass a variable number of arguments to a function in Python.
 * This can be useful when you're uncertain about the number of arguments you need to provide or when you want to create functions that can handle a dynamic number of inputs.
 *  Python provides two ways to implement arbitrary arguments in function definitions: ***args** and ****kwargs**.
