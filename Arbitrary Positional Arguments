@@ -1,0 +1,45 @@
+# Q1 Write a function average that calculates and returns the average of an arbitrary number of arguments passed to it.
+def averageofnumber(*number):
+     if len(number) == 0:
+          print("Math Error! Numbers cannot be divided by 0")
+     else:      
+      average = sum(number)/len(number)
+      return average
+print(averageofnumber(10,10,10,10,101,55))
+
+# Q2 Create a function concatenate that takes an arbitrary number of string arguments and returns their concatenation.
+
+def concatenate(*myInfo):
+    result = " ".join(myInfo)
+    return result
+
+print(concatenate("My", "Name", "is", "Talaal"))
+
+
+
+def max_difference(*numbers):
+    if len(numbers) < 2:
+        return "List should contain at least two numbers"
+    
+    differences = [abs(numbers[i] - numbers[i+1]) for i in range(len(numbers)-1)]
+    max_diff = max(differences)
+    
+    return max_diff
+
+print(max_difference(15, 10, 25, 30, 40))
+# In this particular case, we don't necessarily need an else statement after the if statement because the return statement inside the if block terminates the function. If the condition in the if statement is met and the block executes, the function ends there. However, you could certainly add an else block if you want to provide some default behavior or additional handling when the condition is not met. Here's an example of how you could modify the code to include an else block:
+
+# Q4 Design a function word_lengths that accepts an arbitrary number of words and returns a dictionary where the keys are the words and the values are their corresponding lengths.
+
+# Create a function word_length with *Args parameter
+def word_length(*args):
+    if len(args) < 2:
+        return "Word Length must be 2 or greater!"
+    
+    word_lengths_dict = {}
+    for word in args:
+        word_lengths_dict[word] = len(word)
+    
+    return word_lengths_dict
+
+print(word_length("apple", "banana", "grape", "orange"))
