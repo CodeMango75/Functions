@@ -1,0 +1,48 @@
+# Q1 Create a function print_info that takes arbitrary keyword arguments representing a person's information (name, age, country) and prints them.
+
+def print_info(**information):
+    for name, value in information.items(): # In this code, I've used .items() to iterate through the key-value pairs of the information dictionary, and then I've printed the formatted output.
+        print(f'{name}: {value}')
+
+print_info(name="Talaal", age=27)
+
+
+
+# Q2 Write a function calculate_total that takes arbitrary keyword arguments representing items and their prices, and returns the total cost.
+
+def calculate_total(**invoice):
+    total_cost = sum(invoice.values()) # invoice.values() extracts all the values (prices) from the keyword arguments provided. The sum() function then adds up these values to get the total cost.
+    return total_cost
+
+item_prices = { # This is a dictionary named item_prices that holds items as keys and their corresponding prices as values. For example, "Iphone" is a key, and 75000 is its corresponding value.
+    "Iphone": 75000,
+    "Laptop": 60000,
+    "Headphones": 2000
+}
+
+total = calculate_total(**item_prices) # Here, you're calling the calculate_total function and passing the item_prices dictionary as keyword arguments using the ** operator. This is equivalent to passing individual keyword arguments like items="Iphone", price=75000.
+print(f'Total cost: {total}') # Finally, you're printing the total cost calculated by the calculate_total function.
+
+# Q3 Build a function merge_dicts that takes arbitrary keyword arguments representing dictionaries, and returns a merged dictionary.
+
+def merge_dicts(**dictionaries):
+    merged_dict = {}
+    for dictionary in dictionaries.values():
+        merged_dict.update(dictionary)
+    return merged_dict
+
+dictionary1 = {
+    "Name": "Talaal",
+    "Age": 27,
+    "City": "Karachi"
+}
+
+dictionary2 = {
+    "Name": "Manaal",
+    "Age": 23,
+    "City": "Karachi"
+}
+
+merged = merge_dicts(dict1=dictionary1, dict2=dictionary2)
+print(merged)
+
